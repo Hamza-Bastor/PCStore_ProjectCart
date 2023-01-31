@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div style="padding-bottom: 50px;"></div>
+<header>
+    <div class="wrapper">
+        <input checked type=radio name="slider" id="slide1" />
+        <input type=radio name="slider" id="slide2" />
+        <input type=radio name="slider" id="slide3" />
+        <input type=radio name="slider" id="slide4" />
+        <input type=radio name="slider" id="slide5" />
+
+        <div class="slider-wrapper">
+            <div class=inner>
+                <article>
+                    <div class="info top-left">
+                        <h3>GeForce RTX 4090</h3>
+                    </div>
+                    <img src="/media/template/slide-1.jpeg" />
+                </article>
+
+                <article>
+                    <div class="info bottom-right">
+                    </div>
+                    <img src="/media/template/slide-0.jpg" />
+                </article>
+
+                <article>
+                    <div class="info bottom-left">
+                        <h3>AMD Ryzen 7000</h3>
+                    </div>
+                    <img src="/media/template/slide-2.jpeg" />
+                </article>
+
+                <article>
+                    <div class="info top-right">
+                    </div>
+                    <img src="/media/template/slide-3.jpeg" />
+                </article>
+
+                <article>
+                    <div class="info bottom-left">
+                        <h3>Intel Core i9-10900K</h3>
+                    </div>
+                    <img src="/media/template/slide-4.jpeg" />
+                </article>
+            </div>
+            <!-- .inner -->
+        </div>
+        <!-- .slider-wrapper -->
+
+        <div class="slider-prev-next-control">
+            <label for=slide1></label>
+            <label for=slide2></label>
+            <label for=slide3></label>
+            <label for=slide4></label>
+            <label for=slide5></label>
+        </div>
+        <!-- .slider-prev-next-control -->
+
+        <div class="slider-dot-control">
+            <label for=slide1></label>
+            <label for=slide2></label>
+            <label for=slide3></label>
+            <label for=slide4></label>
+            <label for=slide5></label>
+        </div>
+        <!-- .slider-dot-control -->
+    </div>
+</header>
+
+<div style="padding-bottom: 100px;"></div>
+
+<section id="benefit-cards-2">
+    <h2 style="margin-bottom:20px;" class="text-center">OUR CATEGORIES</h2>
+    <div class="container">
+        <div class="row">
+            <div class="containx">
+                <div class="col-md-4">
+                    <a href="~/products/Hardware">
+                        <button class=" button-49 servicebox">
+                            <div class="iconx">
+                                <img class="img-hardware" src="/media/template/hardware.png" />
+                            </div>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="~/products/Peripherals">
+                        <button class=" button-49 servicebox">
+                            <div class="iconx">
+                                <img class="img-hardware" src="/media/template/peripheral.png" />
+                            </div>
+                        </button>
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href="~/products/Computers">
+                        <button class=" button-49 servicebox">
+                            <div class="iconx">
+                                <img class="img-computer" src="/media/template/computer1.png" />
+                            </div>
+                        </button>
+                    </a>
+                </div>
+            </div>
+            <div class="bg"></div>
+        </div>
+</section>

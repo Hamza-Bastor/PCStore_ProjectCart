@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PCStore</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PCStore.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+</head>
+<body>
+    <header id="na">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" style="background-color: #D12222;">
+            <div class="container-fluid">
+                <a class="navbar-brand me-5" asp-area="" asp-controller="Home" asp-action="Index"><img class="logo" src="~/media/template/logo.png" /></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item hover-text me-3">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item hover-text me-5">
+                            <a class="nav-link text-light" asp-area="" asp-controller="Products" asp-action="Index">Our Products</a>
+                        </li>
+                        @if (User.Identity?.IsAuthenticated ?? false)
+                        {
+                            <li class="nav-item hover-text ms-auto me-3">
+                                <a class="nav-link text-light" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
+                            </li>
+                            <li class="nav-item hover-text">
+                                <a class="nav-link text-light" asp-controller="Account" asp-action="Logout">Hi, @User.Identity.Name, Log out</a>
+                            </li>
+                            @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                            {
+                                <li class="nav-item">
+                                    <a class="btn btn-primary" asp-area="Admin" asp-controller="Products" asp-action="Index">Products</a>
+                                </li>
+                            }
+                        }
+                        else
+                        {
+                            <li class="nav-item hover-text ms-auto me-3">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Create">Register</a>
+                            </li>
+                            <li class="nav-item hover-text ">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Login">Log in</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            <div class="row">
+
+                <div class="col">
+                    <partial name="_NotificationPartial" />
+                    @RenderBody()
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - PCStore
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="https://kit.fontawesome.com/466f460953.js" crossorigin="anonymous"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
